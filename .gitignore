@@ -1,0 +1,57 @@
+# Build artifacts
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.vsix
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.swp
+.vscode/
+.vs/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tlog
+*.csv
+*.log1
+*.log2
+*.cache
+*.tmp
+*.bak
+
+# Packages (NuGet)
+*.nupkg
+packages/
+!nuget.config
+!packages.config
+
+# Entity Framework Migrations
+Migrations/
+
+# .NET Core / Blazor / MAUI
+wwwroot/
+node_modules/
+dist/
+libman.json
+
+# Publish output
+publish/
+AppPackages/
+TestResults/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# MacOS / Linux
+.DS_Store
