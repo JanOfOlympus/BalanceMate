@@ -8,11 +8,20 @@
 
         public double Amount { get; private set; }
 
-        public Income(string source, double amount)
+        public string Type { get; private set; }
+
+        public DateTimeOffset CreatedWhen { get; private set; }
+
+        public DateTimeOffset LastModifiedWhen { get; private set; }
+
+        public Income(string source, double amount, string type)
         {
             Id = Guid.NewGuid();
             Source = source;
             Amount = amount;
+            Type = type;
+            CreatedWhen = DateTimeOffset.UtcNow;
+            LastModifiedWhen = DateTimeOffset.UtcNow;
         }
     }
 }
