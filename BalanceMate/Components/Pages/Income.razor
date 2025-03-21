@@ -1,0 +1,64 @@
+﻿@page "/income"
+@using BalanceMate.Components.Enums
+
+<PageTitle>Income</PageTitle>
+
+<h1>Income</h1>
+
+<EditForm Model="@income" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label>Amount:</label>
+        <InputText @bind-Value="income.Name" />
+    </div>
+
+    <div>
+        <label>Source:</label>
+        <InputText @bind-Value="income.Source" />
+    </div>
+
+    <div>
+        <label>Role:</label>
+        <InputSelect @bind-Value="income.Type">
+            @foreach (var type in Enum.GetValues(typeof(IncomeTypeEnum)))
+            {
+                <option value="@type">@type</option>
+            }
+        </InputSelect>
+    </div>
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+<div>
+    @if (income.IsSubmitted)
+    {
+        <span>Submitted: @income.Name, @income.Source, @income.Type</span>
+    }
+</div>
+
+@code {
+    private IncomeInput income = new IncomeInput();
+
+    private void HandleValidSubmit()
+    {
+        income.IsSubmitted = true;
+        Console.WriteLine($"Submitted: {income.Name}, {income.Source}, {income.Type}");
+    }
+
+    public class IncomeInput
+    {
+        [Required]
+        public string Name { get; set; } = "";
+
+        [Required]
+        public string Source { get; set; } = "";
+
+        [Required]
+        public string Type { get; set; } = "";
+
+        public bool IsSubmitted { get; set; }
+    }
+}
